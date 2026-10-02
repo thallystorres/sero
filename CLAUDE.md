@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Ainda não há código, build nem testes. Existem só os arquivos base: `docs/requisitos.md`, `README.md`, `TIL.md`, `.gitignore` e as pastas `api/`, `android/` e `dns/`, vazias (com `.gitkeep`). `docs/requisitos.md` é a fonte de requisitos (RF01–RF25, RNF01–RNF10), stack, modelo de dados, processo e roadmap; leia-o antes de propor qualquer coisa.
 
-Não há comandos de build, lint ou teste ainda. Quando `api/` existir (issues 3, 4 e 8 do Ciclo 1), registre aqui os comandos reais — incluindo como rodar um único teste — em vez de presumi-los.
+Não há comandos de build, lint ou teste ainda. Quando `api/` existir (issues #4, #5 e #9 do GitHub), registre aqui os comandos reais — incluindo como rodar um único teste — em vez de presumi-los.
 
 ## O projeto
 
