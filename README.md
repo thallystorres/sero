@@ -39,6 +39,7 @@ sero/
 ├── android/
 ├── dns/
 ├── docs/
+│   ├── adr-001-fastapi-sqlalchemy-async.md
 │   └── requisitos.md
 ├── CLAUDE.md
 ├── README.md
@@ -63,6 +64,8 @@ As pastas `api/`, `android/` e `dns/` ainda estão vazias. Cada uma tem um arqui
 **`README.md`** — este arquivo. É a porta de entrada: explica a ideia e mostra onde cada coisa está. Ele descreve o repositório como ele é hoje e é atualizado conforme o projeto muda.
 
 **`docs/requisitos.md`** — o documento de onde tudo parte. Reúne o que o app precisa fazer, o plano e a forma de trabalho. Para entender o projeto a fundo, é por ele que se continua a leitura.
+
+**`docs/adr-001-fastapi-sqlalchemy-async.md`** — o registro da decisão de usar FastAPI com SQLAlchemy 2.0 async no servidor: contexto, alternativas e consequências.
 
 **`TIL.md`** — *Today I Learned*, "hoje eu aprendi". Um diário com uma linha por dia de trabalho, registrando o que foi aprendido.
 
