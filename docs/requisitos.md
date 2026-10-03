@@ -256,22 +256,16 @@ São oito issues, três P e cinco M. Se no fim do ciclo você fechar cinco, essa
 
 **Modelo de issue**
 
+O template fica em `.github/ISSUE_TEMPLATE/historia.md`. O tamanho vai na label (`P` ou `M`) e a nota de parada vai como comentário na issue, ao fim de cada sessão.
+
 ```markdown
 ## História
-Como devoto, quero registrar uma queda na streak,
-para recomeçar sem perder meu histórico.
+Como devoto, quero registrar uma queda na streak, para recomeçar sem perder meu histórico.
 
 ## Critérios de aceite
-- Dado uma streak de 10 dias, quando registro uma queda,
-  então a streak atual volta a 0 e o recorde continua 10.
-- Dado uma queda registrada hoje, quando consulto o mês,
-  então o total de dias limpos do mês não é apagado.
 
-## Tamanho
-M
-
-## Nota de parada
-(o próximo passo exato, escrito ao fim de cada sessão)
+- [ ] Dado uma streak de 10 dias, quando registro uma queda, então a streak atual volta a 0 e o recorde continua 10.
+- [ ] Dado uma queda registrada hoje, quando consulto o mês, então o total de dias limpos do mês não é apagado.
 ```
 
 ## Agente de IA como gerente do projeto
@@ -297,7 +291,7 @@ O agente funciona como um assistente de Product Owner e Scrum Master: organiza, 
 
 **Como montar, em níveis**
 
-1. **Convenções no GitHub.** Milestone = ciclo. Labels de tipo (`feat`, `bug`, `estudo`, `chore`), de módulo e de tamanho. O modelo de issue acima vira um template em `.github/ISSUE_TEMPLATE/`. Sem isso, nenhum agente consegue ajudar.
+1. **Convenções no GitHub.** Milestone = ciclo. Labels de tipo (`feat`, `bug`, `estudo`, `chore`), de módulo e de tamanho. O modelo de issue acima é o template em `.github/ISSUE_TEMPLATE/historia.md`. Sem isso, nenhum agente consegue ajudar.
 2. **Agente no terminal, dentro do repositório.** O [Claude Code](https://docs.claude.com/en/docs/claude-code/overview) lê o código e pode usar a `gh` CLI para criar e editar issues, milestones e PRs. As regras do processo vão num `CLAUDE.md` na raiz, e cada evento vira um comando reutilizável (planejar ciclo, refinar, daily, revisão, retro).
 3. **Automação no GitHub Actions (depois da Fase 1).** Ao abrir uma issue, um workflow chama a API do Claude e comenta se ela cumpre a Definition of Ready. No último dia do ciclo, um workflow agendado gera o relatório da revisão. Bom para aprender Actions, que está marcado como Nova.
 4. **Seu próprio agente (opcional, vai para "Depois").** Um "Scrum Master" em LangGraph com ferramentas para ler issues pela API do GitHub, calcular métricas e propor o plano do ciclo. É a sua stack e dá um ótimo projeto de portfólio de IA, mas não pode competir com o app.
