@@ -47,10 +47,11 @@ Em todos os casos:
 1. **Commit sem corpo.** A mensagem é só a linha de assunto, no padrão Conventional Commits. Nada de corpo nem de trailers — inclusive `Co-Authored-By`.
 2. **Pouca documentação dentro do código.** Evite docstrings e comentários extensos ou que repitam o que o código já diz. Comente só o que não é óbvio pela leitura.
 3. **Documentação vai no mesmo commit.** Antes de qualquer commit, atualize tudo o que referencia o que foi alterado ou adicionado — em `docs/`, no `README.md` e neste `CLAUDE.md` — e inclua essas mudanças no próprio commit. O `README.md` descreve só o que já existe no repositório: a ideia e os arquivos base, sem roadmap, arquitetura ou funcionalidades futuras.
-4. **O `TIL.md` é escrito só pelo usuário.** Nunca redija, complete, corrija ou reescreva o texto das notas, nem sugira o que escrever. A ajuda se limita à formatação, e é sua tarefa aplicá-la sempre que uma alteração do `TIL.md` for commitada: acrescente o cabeçalho do dia e o hash, sem tocar em nenhuma palavra do texto que o usuário escreveu.
-   - um título `## AAAA-MM-DD` por dia, do mais recente para o mais antigo;
-   - uma nota por linha, em lista, terminando com o hash curto do commit a que ela se refere: ``- texto do usuário (`abc1234`)``;
-   - a nota entra num commit próprio, `docs(til): registra notas de AAAA-MM-DD`, feito depois do commit do trabalho — um commit não consegue conter o próprio hash, então o hash citado é o do trabalho que gerou o aprendizado.
+4. **O `TIL.md` é escrito só pelo usuário.** Nunca redija, complete, corrija ou reescreva o texto das notas, nem sugira o que escrever. A ajuda se limita à formatação, e é sua tarefa aplicá-la sempre que uma alteração do `TIL.md` for commitada: acrescente o cabeçalho do dia e a referência, sem tocar em nenhuma palavra do texto que o usuário escreveu.
+   - um título `## AAAA-MM-DD` por dia, do mais recente para o mais antigo; a data é a do aprendizado, não a do commit;
+   - uma nota por linha, em lista, terminando com a referência ao trabalho de onde ela veio: `- texto do usuário (#12)`;
+   - a referência é o número do PR em que o trabalho entrou; sem PR, o número da issue; sem nenhum dos dois, a nota fica sem referência. Nunca use hash de commit: com squash merge, os commits da branch deixam de existir;
+   - nota ligada a um PR entra no próprio PR, num commit `docs(til): registra notas de AAAA-MM-DD`; nota sem PR vai direto na `main`, com o mesmo padrão de commit.
 
 ## Arquitetura
 
@@ -75,7 +76,7 @@ O MVP (Fase 1) é só conta, devocional e streak — RF01–RF06, RF11, RF12 —
 - **Definition of Done:** testes passando no CI, código revisado no PR, documentação atualizada, linha no `TIL.md` se houve aprendizado.
 - Uma branch por issue, nomeada `<tipo>/<número>-<resumo>` (ex.: `feat/7-crud-praticas`), com PR para a `main`.
 - **Squash merge:** cada issue vira um único commit na `main`. Na branch os commits são livres; como commits não têm corpo, o "porquê" fica na descrição do PR.
-- **Nada direto na `main` depois do commit inicial**, exceto as notas do `TIL.md`. Código sempre passa por PR com CI.
+- **Nada direto na `main` depois do commit inicial**, exceto as notas do `TIL.md` que não pertencem a nenhum PR. Código sempre passa por PR com CI.
 - O merge só acontece depois de o usuário reler o diff no dia seguinte. A espera não bloqueia: abre-se o PR, começa-se a próxima issue a partir da `main` e o merge fica para a sessão seguinte.
 - **Toda sessão começa lendo a nota de parada da issue e termina escrevendo a próxima.** A nota de parada é um comentário na issue, não uma seção do corpo.
 - **Estourou o tamanho, pare:** issue P que passa de duas sessões ou M que passa de três é quebrada ou reestimada, não esticada.
