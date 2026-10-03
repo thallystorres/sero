@@ -32,6 +32,9 @@ O projeto tem dois objetivos de mesmo peso: ser um produto usado todos os dias e
 
 ```
 sero/
+├── .github/
+│   └── ISSUE_TEMPLATE/
+│       └── historia.md
 ├── api/
 ├── android/
 ├── dns/
@@ -51,6 +54,7 @@ sero/
 | `android/` | O aplicativo Android |
 | `dns/` | O servidor de DNS |
 | `docs/` | A documentação do projeto |
+| `.github/` | Configurações do GitHub, como o modelo de issue |
 
 As pastas `api/`, `android/` e `dns/` ainda estão vazias. Cada uma tem um arquivo `.gitkeep`, que existe só porque o git não guarda pastas vazias.
 
@@ -63,6 +67,8 @@ As pastas `api/`, `android/` e `dns/` ainda estão vazias. Cada uma tem um arqui
 **`TIL.md`** — *Today I Learned*, "hoje eu aprendi". Um diário com uma linha por dia de trabalho, registrando o que foi aprendido.
 
 **`CLAUDE.md`** — as regras que o assistente de IA segue neste repositório: o que ele pode fazer, o que deve deixar para o autor e como o trabalho é organizado.
+
+**`.github/ISSUE_TEMPLATE/historia.md`** — o modelo usado ao abrir uma issue no GitHub: a história ("Como… quero… para…") e os critérios de aceite em forma de lista de verificação.
 
 **`.gitignore`** — a lista do que o git não deve guardar, como senhas, arquivos temporários e configurações da máquina.
 

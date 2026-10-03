@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Estado do repositório
 
-Ainda não há código, build nem testes. Existem só os arquivos base: `docs/requisitos.md`, `README.md`, `TIL.md`, `.gitignore` e as pastas `api/`, `android/` e `dns/`, vazias (com `.gitkeep`). `docs/requisitos.md` é a fonte de requisitos (RF01–RF25, RNF01–RNF10), stack, modelo de dados, processo e roadmap; leia-o antes de propor qualquer coisa.
+Ainda não há código, build nem testes. Existem só os arquivos base: `docs/requisitos.md`, `README.md`, `TIL.md`, `.gitignore`, o template de issue em `.github/ISSUE_TEMPLATE/` e as pastas `api/`, `android/` e `dns/`, vazias (com `.gitkeep`). `docs/requisitos.md` é a fonte de requisitos (RF01–RF25, RNF01–RNF10), stack, modelo de dados, processo e roadmap; leia-o antes de propor qualquer coisa.
 
 Não há comandos de build, lint ou teste ainda. Quando `api/` existir (issues #4, #5 e #9 do GitHub), registre aqui os comandos reais — incluindo como rodar um único teste — em vez de presumi-los.
 
@@ -39,7 +39,7 @@ Em todos os casos:
 - Decisões de arquitetura são do usuário. O ADR é escrito por ele primeiro; depois, ataque a decisão.
 - **Proponha, não execute:** nunca feche issue, mude prioridade ou faça merge sem aprovação.
 - O GitHub (issues, milestones, labels) é a fonte da verdade do estado do projeto, não a conversa.
-- No fim de cada sessão, lembre o usuário de atualizar a "Nota de parada" da issue e a linha do dia no `TIL.md`.
+- No fim de cada sessão, lembre o usuário de escrever a nota de parada como comentário na issue e a linha do dia no `TIL.md`.
 - Ideia nova no meio do ciclo vai para a issue "Depois", não para a fase atual.
 
 ## Regras de commit, código e documentação
@@ -77,13 +77,14 @@ O MVP (Fase 1) é só conta, devocional e streak — RF01–RF06, RF11, RF12 —
 - **Squash merge:** cada issue vira um único commit na `main`. Na branch os commits são livres; como commits não têm corpo, o "porquê" fica na descrição do PR.
 - **Nada direto na `main` depois do commit inicial**, exceto as notas do `TIL.md`. Código sempre passa por PR com CI.
 - O merge só acontece depois de o usuário reler o diff no dia seguinte. A espera não bloqueia: abre-se o PR, começa-se a próxima issue a partir da `main` e o merge fica para a sessão seguinte.
-- **Toda sessão começa lendo a nota de parada da issue e termina escrevendo a próxima.**
+- **Toda sessão começa lendo a nota de parada da issue e termina escrevendo a próxima.** A nota de parada é um comentário na issue, não uma seção do corpo.
 - **Estourou o tamanho, pare:** issue P que passa de duas sessões ou M que passa de três é quebrada ou reestimada, não esticada.
 - **Estudo é issue**, com label `estudo` e tempo limite definido na própria issue. A entrega é uma nota no `TIL.md`, não código — por isso não tem branch nem PR: fecha com o commit da nota na `main`.
 - **ADR antes do código:** se surgir uma decisão de arquitetura no meio de uma issue, o trabalho para, o usuário escreve o ADR curto em `docs/` e só então a implementação segue.
 - Ideias novas vão para uma única issue "Depois", uma linha por ideia, sem refinamento; ela só é aberta no planejamento do ciclo seguinte.
 - Conventional Commits referenciando a issue: `feat(streak): registra queda #12`.
-- Labels: tipo (`feat`, `bug`, `estudo`, `chore`), módulo e tamanho. O modelo de issue está em `docs/requisitos.md` e deve virar template em `.github/ISSUE_TEMPLATE/`.
+- Labels: tipo (`feat`, `bug`, `estudo`, `chore`), módulo e tamanho (`P`, `M`). O tamanho vai só na label.
+- Template de issue em `.github/ISSUE_TEMPLATE/historia.md`: seções `## História` e `## Critérios de aceite`, com os critérios como caixas de seleção (`- [ ]`).
 
 ## Tom dos textos
 
