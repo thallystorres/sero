@@ -144,7 +144,7 @@ Das 27 tecnologias do projeto, 16 são novas para você, 5 são para aprofundar,
 | Redes | Protocolo DNS (RFC 1035) | Ler e responder pacotes DNS no filtro | Fase 2 | Nova |
 | Redes | Listas de bloqueio (OISD, StevenBlack) | Domínios adultos e de anúncios | Fase 2 | Nova |
 | Backend | WebSocket ou push para o parceiro | Alertas de adulteração em tempo real | Fase 3 | Nova |
-| Infra | Docker + docker compose | Rodar API, Postgres e Redis igual em dev e produção | Fase 4 | Aprofundar |
+| Infra | Docker + docker compose | Rodar API, Postgres e Redis igual em dev e produção | Fase 1 | Aprofundar |
 | Infra | GitHub Actions | CI: testes e lint a cada push | Fase 4 | Nova |
 | Infra | AWS ou VPS | Deploy da API | Fase 1 | Aprofundar |
 | Mobile | AccessibilityService + DevicePolicyManager | Conteúdo dentro de apps e Device Owner | Fase 1 | Nova |
