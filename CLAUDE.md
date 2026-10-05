@@ -4,9 +4,16 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Estado do repositório
 
-Ainda não há código, build nem testes. Existem só os arquivos base: `docs/requisitos.md`, `docs/adr-001-fastapi-sqlalchemy-async.md`, `README.md`, `TIL.md`, `.gitignore`, o template de issue em `.github/ISSUE_TEMPLATE/` e as pastas `api/`, `android/` e `dns/`, vazias (com `.gitkeep`). `docs/requisitos.md` é a fonte de requisitos (RF01–RF25, RNF01–RNF10), stack, modelo de dados, processo e roadmap; leia-o antes de propor qualquer coisa.
+Ainda não há código, build nem testes. Existem os arquivos base — `docs/requisitos.md`, `docs/adr-001-fastapi-sqlalchemy-async.md`, `README.md`, `TIL.md`, `.gitignore` e o template de issue em `.github/ISSUE_TEMPLATE/` —, o ambiente local em `api/` (`docker-compose.yml` e `.env.example`) e as pastas `android/` e `dns/`, vazias (com `.gitkeep`). `docs/requisitos.md` é a fonte de requisitos (RF01–RF25, RNF01–RNF10), stack, modelo de dados, processo e roadmap; leia-o antes de propor qualquer coisa.
 
-Não há comandos de build, lint ou teste ainda. Quando `api/` existir (issues #4, #5 e #9 do GitHub), registre aqui os comandos reais — incluindo como rodar um único teste — em vez de presumi-los.
+Ambiente local (Postgres e Redis), a partir de `api/`, com `api/.env` copiado de `.env.example`:
+
+- `docker compose up -d --wait` — sobe os dois e espera o healthcheck;
+- `docker compose down` — derruba mantendo os dados; `docker compose down -v` apaga também os volumes.
+
+As portas são publicadas só em `127.0.0.1`: Postgres em `POSTGRES_PORT`, Redis em 6379.
+
+Não há comandos de build, lint ou teste ainda. Quando o código da API existir (issues #5 e #9 do GitHub), registre aqui os comandos reais — incluindo como rodar um único teste — em vez de presumi-los.
 
 ## O projeto
 

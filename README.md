@@ -36,6 +36,8 @@ sero/
 │   └── ISSUE_TEMPLATE/
 │       └── historia.md
 ├── api/
+│   ├── .env.example
+│   └── docker-compose.yml
 ├── android/
 ├── dns/
 ├── docs/
@@ -51,13 +53,13 @@ sero/
 
 | Pasta | Para que serve |
 | --- | --- |
-| `api/` | O servidor do app |
+| `api/` | O servidor do app; por enquanto, só o ambiente local com Postgres e Redis |
 | `android/` | O aplicativo Android |
 | `dns/` | O servidor de DNS |
 | `docs/` | A documentação do projeto |
 | `.github/` | Configurações do GitHub, como o modelo de issue |
 
-As pastas `api/`, `android/` e `dns/` ainda estão vazias. Cada uma tem um arquivo `.gitkeep`, que existe só porque o git não guarda pastas vazias.
+As pastas `android/` e `dns/` ainda estão vazias. Cada uma tem um arquivo `.gitkeep`, que existe só porque o git não guarda pastas vazias.
 
 ### Arquivos
 
@@ -66,6 +68,10 @@ As pastas `api/`, `android/` e `dns/` ainda estão vazias. Cada uma tem um arqui
 **`docs/requisitos.md`** — o documento de onde tudo parte. Reúne o que o app precisa fazer, o plano e a forma de trabalho. Para entender o projeto a fundo, é por ele que se continua a leitura.
 
 **`docs/adr-001-fastapi-sqlalchemy-async.md`** — o registro da decisão de usar FastAPI com SQLAlchemy 2.0 async no servidor: contexto, alternativas e consequências.
+
+**`api/docker-compose.yml`** — sobe o Postgres e o Redis usados no desenvolvimento. Dentro de `api/`, `docker compose up -d --wait` inicia os dois e espera ficarem saudáveis; `docker compose down` os derruba sem apagar os dados. As portas ficam acessíveis só na própria máquina.
+
+**`api/.env.example`** — o modelo das variáveis que o `docker-compose.yml` exige. Copie para `api/.env`, que não é versionado, e troque a senha.
 
 **`TIL.md`** — *Today I Learned*, "hoje eu aprendi". Um diário com uma linha por dia de trabalho, registrando o que foi aprendido.
 

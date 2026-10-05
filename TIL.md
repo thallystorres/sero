@@ -1,3 +1,10 @@
+## 2026-10-05
+
+- Quando for usar Redis como Broker, é legal guardar em disco algumas coisas em algum volume montado no Docker (#4)
+- Esse volume montado serve pra garantir persistência de dados e evitar perda de mensagens caso o container caia (#4)
+- Tem o RDB que guarda snapshots periódicos e tem o AOF que guarda logs de cada comando (#4)
+- Busque sempre usar uma versão do Debian pra imagem do Postgres, elas usam glibc que performa melhor na busca de textos (#4)
+
 ## 2026-10-03
 
 - Schema de API é diferente de Schema de dados (#3)
