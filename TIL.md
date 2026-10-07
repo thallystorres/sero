@@ -1,9 +1,19 @@
+## 2026-10-06
+
+- Normalmente se instancia o app do FastAPI no `main.py` na raiz do app, junto com alguns arquivos de configuração geral, database e etc (#14)
+- Semelhante ao que eu faço no Django, a comunidade do FastAPI recomenda uma divisão por domínio das pastas do projeto, que podem conter arquivos de gerenciamento de rotas (`router.py`), schemas do Pydantic, models e etc (#14)
+- Os testes ficam numa pasta `tests/` dentro da raíz do repositório (nesse caso, dentro de `api/`) (#14)
+- A palavra chave await só pode ser necessariamente usada em funções async. Ela pausa todas as próximas linhas para esperar o fim da tarefa, e só pode ser aplicada em objetos ou funções que também são `awaitables` (#14)
+- Já o yield retorna o estado intermediário de algo função GERADORA, funciona basicamente como um return, mas não acaba com a função quando é chamado (#14)
+- Quando bato num await numa função síncrona, ela trava aquela função até chegar mais informações, mas libera todo o event loop pra executar outras tarefas async que estão sobrando (#14)
+
 ## 2026-10-05
 
 - Quando for usar Redis como Broker, é legal guardar em disco algumas coisas em algum volume montado no Docker (#4)
 - Esse volume montado serve pra garantir persistência de dados e evitar perda de mensagens caso o container caia (#4)
 - Tem o RDB que guarda snapshots periódicos e tem o AOF que guarda logs de cada comando (#4)
 - Busque sempre usar uma versão do Debian pra imagem do Postgres, elas usam glibc que performa melhor na busca de textos (#4)
+- Uvicorn é um servidor ASGI (Asynchronous Server Gateway Interface), ele define uma interface pra se comunicar entre a web o server async (#14)
 
 ## 2026-10-03
 
