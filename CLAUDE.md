@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Estado do repositório
 
-Ainda não há código, build nem testes. Existem os arquivos base — `docs/requisitos.md`, `docs/adr-001-fastapi-sqlalchemy-async.md`, `README.md`, `TIL.md`, `.gitignore` e o template de issue em `.github/ISSUE_TEMPLATE/` —, o ambiente local em `api/` (`docker-compose.yml` e `.env.example`) e as pastas `android/` e `dns/`, vazias (com `.gitkeep`). `docs/requisitos.md` é a fonte de requisitos (RF01–RF25, RNF01–RNF10), stack, modelo de dados, processo e roadmap; leia-o antes de propor qualquer coisa.
+Existe só o esqueleto da API: o projeto `uv` em `api/` (pacote `sero`, em `api/src/sero/`), com o app FastAPI em `main.py`, a rota `GET /health`, um router vazio por domínio (`devotions/router.py`, `streak/router.py`) e os testes em `api/tests/`. Não há banco, modelos nem autenticação ainda. Além disso, os arquivos base — `docs/requisitos.md`, `docs/adr-001-fastapi-sqlalchemy-async.md`, `README.md`, `TIL.md`, `.gitignore` e o template de issue em `.github/ISSUE_TEMPLATE/` —, o ambiente local em `api/` (`docker-compose.yml` e `.env.example`) e as pastas `android/` e `dns/`, vazias (com `.gitkeep`). `docs/requisitos.md` é a fonte de requisitos (RF01–RF25, RNF01–RNF10), stack, modelo de dados, processo e roadmap; leia-o antes de propor qualquer coisa.
 
 Ambiente local (Postgres e Redis), a partir de `api/`, com `api/.env` copiado de `.env.example`:
 
@@ -13,7 +13,16 @@ Ambiente local (Postgres e Redis), a partir de `api/`, com `api/.env` copiado de
 
 As portas são publicadas só em `127.0.0.1`: Postgres em `POSTGRES_PORT`, Redis em 6379.
 
-Não há comandos de build, lint ou teste ainda. Quando o código da API existir (issues #5 e #9 do GitHub), registre aqui os comandos reais — incluindo como rodar um único teste — em vez de presumi-los.
+API e testes, também a partir de `api/` (Python 3.14, gerenciado pelo `uv`):
+
+- `uv sync` — cria a `.venv` e instala as dependências, inclusive as de desenvolvimento;
+- `uv run fastapi dev` — sobe a API em `http://127.0.0.1:8000` com reload; o app é achado pelo `entrypoint` de `[tool.fastapi]` no `pyproject.toml` (`sero.main:app`);
+- `uv run pytest` — roda todos os testes;
+- `uv run pytest tests/test_health.py::test_health_endpoint` — roda um único teste (`arquivo::função`).
+
+Os testes são async: o `pytest-asyncio` está em modo `auto` (`[tool.pytest.ini_options]`) e a fixture do client HTTP, em `api/tests/conftest.py`, chama o app em memória com `httpx.ASGITransport`, sem servidor.
+
+Não há lint nem CI ainda (issue #9 do GitHub); quando existirem, registre aqui os comandos reais em vez de presumi-los.
 
 ## O projeto
 
@@ -53,7 +62,7 @@ Em todos os casos:
 
 1. **Commit sem corpo.** A mensagem é só a linha de assunto, no padrão Conventional Commits. Nada de corpo nem de trailers — inclusive `Co-Authored-By`.
 2. **Pouca documentação dentro do código.** Evite docstrings e comentários extensos ou que repitam o que o código já diz. Comente só o que não é óbvio pela leitura.
-3. **Documentação vai no mesmo commit.** Antes de qualquer commit, atualize tudo o que referencia o que foi alterado ou adicionado — em `docs/`, no `README.md` e neste `CLAUDE.md` — e inclua essas mudanças no próprio commit. O `README.md` descreve só o que já existe no repositório: a ideia e os arquivos base, sem roadmap, arquitetura ou funcionalidades futuras.
+3. **Documentação vai no mesmo commit.** Antes de qualquer commit, atualize tudo o que referencia o que foi alterado ou adicionado — em `docs/`, no `README.md` e neste `CLAUDE.md` — e inclua essas mudanças no próprio commit. O `README.md` não lista arquivos nem explica a hierarquia de pastas: ele apresenta a ideia, as funcionalidades previstas por fase, o que já foi feito (um checklist que espelha as issues do ciclo atual; marque a issue no próprio PR dela, antes de abri-lo), a infraestrutura geral e como o projeto é tocado.
 4. **O `TIL.md` é escrito só pelo usuário.** Nunca redija, complete, corrija ou reescreva o texto das notas, nem sugira o que escrever. A ajuda se limita à formatação, e é sua tarefa aplicá-la sempre que uma alteração do `TIL.md` for commitada: acrescente o cabeçalho do dia e a referência, sem tocar em nenhuma palavra do texto que o usuário escreveu.
    - um título `## AAAA-MM-DD` por dia, do mais recente para o mais antigo; a data é a do aprendizado, não a do commit;
    - uma nota por linha, em lista, terminando com a referência ao trabalho de onde ela veio: `- texto do usuário (#12)`;
