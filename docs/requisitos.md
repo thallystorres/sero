@@ -230,29 +230,43 @@ Para estudar a base, leia o [Scrum Guide](https://scrumguides.org/scrum-guide.ht
 
 ## Planejamento
 
-A Fase 1 cabe em quatro ciclos de duas semanas (cerca de 8 semanas). O prazo é fixo e o escopo é flexível: se um ciclo escorregar, corte requisitos em vez de esticar a fase.
+A Fase 1 está planejada em seis ciclos de duas semanas, de 02/10 a 25/12/2026. O plano original previa quatro; o Ciclo 1 mostrou uma velocidade de cerca de sete sessões por ciclo, e a fase foi replanejada com ela (#15), sem cortar requisito. O novo prazo é fixo e o escopo é flexível: se um ciclo escorregar, corte requisitos em vez de esticar a fase de novo.
 
 **Ciclos da Fase 1**
 
-1. **Ciclo 1 — Fundação da API.** Repositório, FastAPI organizado por domínio, banco, autenticação e CRUD de práticas, tudo com testes e CI.
-2. **Ciclo 2 — Regras do domínio.** Checklist do dia (RF03), streak por eventos (RF11, RF12), terço com mistérios (RF04) e confissão (RF06). Primeiro deploy da API.
-3. **Ciclo 3 — App Android básico.** Projeto Kotlin + Compose, login, checklist do dia e streak consumindo a API.
-4. **Ciclo 4 — Offline e lembretes.** Room, sincronização com WorkManager e notificações (RF05). Revisão da Fase 1 e início das duas semanas de uso real.
-
-**Backlog do Ciclo 1** — meta: *API de práticas rodando localmente, com autenticação e CI verde.*
-
-| # | Issue | Tamanho | Requisito |
+| Ciclo | Datas | Tema | Conteúdo |
 | --- | --- | --- | --- |
-| 1 | Criar repositório com `api/`, `android/`, `dns/`, `docs/`, README, `TIL.md` e quadro no GitHub Projects | P | — |
-| 2 | Escrever ADR-001: FastAPI com SQLAlchemy async | P | RNF08 |
-| 3 | Subir Postgres e Redis com docker compose | P | — |
-| 4 | Esqueleto FastAPI por domínio, health check e pytest configurado | M | RNF07 |
-| 5 | Modelos User, Practice e PracticeLog com a primeira migração Alembic | M | RF02 |
-| 6 | Autenticação JWT: registro, login e refresh | M | RF01, RNF05 |
-| 7 | CRUD de práticas com recorrência | M | RF02 |
-| 8 | GitHub Actions rodando lint e pytest a cada PR | M | RNF07 |
+| 1 | 02/10–16/10 | Fundação da API I | Repositório, convenções, ADR-001, ambiente local, FastAPI organizado por domínio, modelos e primeira migração |
+| 2 | 16/10–30/10 | Fundação da API II | CI, autenticação e CRUD de práticas |
+| 3 | 30/10–13/11 | Regras do domínio I | Checklist do dia (RF03) e streak por eventos (RF11, RF12) |
+| 4 | 13/11–27/11 | Regras do domínio II | Terço com mistérios (RF04), confissão (RF06) e primeiro deploy da API |
+| 5 | 27/11–11/12 | App Android básico | Projeto Kotlin + Compose, login, checklist do dia e streak consumindo a API |
+| 6 | 11/12–25/12 | Offline e lembretes | Room, sincronização com WorkManager e notificações (RF05). Revisão da Fase 1 e início das duas semanas de uso real |
 
-São oito issues, três P e cinco M. Se no fim do ciclo você fechar cinco, essa é a sua velocidade real, e o Ciclo 2 já é planejado com ela.
+Os Ciclos 2 a 4 seguem a velocidade medida. Os Ciclos 5 e 6 carregam mais trabalho do que ela comporta e contam com as férias de dezembro para isso. Só os Ciclos 1 e 2 têm issues escritas; do 3 em diante a tabela aloca temas, e as issues nascem no planejamento de cada ciclo.
+
+Ainda sem ciclo definido: as telas de terço e de confissão no app e o registro de dispositivos (RF01). Entram no planejamento do Ciclo 4, com a velocidade de três ciclos já medida.
+
+**Backlog do Ciclo 1** — meta original: *API de práticas rodando localmente, com autenticação e CI verde.*
+
+| Issue | Título | Tamanho | Requisito |
+| --- | --- | --- | --- |
+| #1 | Criar repositório com `api/`, `android/`, `dns/`, `docs/`, README, `TIL.md` e quadro no GitHub Projects | P | — |
+| #3 | Escrever ADR-001: FastAPI com SQLAlchemy async | P | RNF08 |
+| #4 | Subir Postgres e Redis com docker compose | P | — |
+| #5 | Esqueleto FastAPI por domínio, health check e pytest configurado | M | RNF07 |
+| #6 | Modelos User, Practice e PracticeLog com a primeira migração Alembic | M | RF02 |
+| #15 | Replanejar a Fase 1 em seis ciclos | P | — |
+
+O ciclo foi planejado com oito issues, três P e cinco M. As cinco primeiras da tabela somam cerca de sete sessões: essa é a velocidade real, e os ciclos seguintes foram planejados com ela. Autenticação, CRUD de práticas e CI passaram para o Ciclo 2.
+
+**Backlog do Ciclo 2** — meta definida no planejamento do ciclo.
+
+| Issue | Título | Tamanho | Requisito |
+| --- | --- | --- | --- |
+| #7 | Autenticação JWT: registro, login e refresh | M | RF01, RNF05 |
+| #8 | CRUD de práticas com recorrência | M | RF02 |
+| #9 | GitHub Actions rodando lint e pytest a cada PR | M | RNF07 |
 
 **Modelo de issue**
 

@@ -59,16 +59,14 @@ A lista completa de requisitos, o modelo de dados e o roadmap estão em [`docs/r
 
 ## O que já foi feito
 
-O projeto está no primeiro ciclo da Fase 1, cuja meta é a API de práticas rodando localmente, com autenticação e CI verde.
+O projeto está no primeiro dos seis ciclos da Fase 1, que termina em 25/12/2026. Este ciclo monta a fundação da API; autenticação, CRUD de práticas e CI ficam para o segundo.
 
 - [x] Repositório, convenções do GitHub e modelo de issue (#1)
 - [x] ADR-001: FastAPI com SQLAlchemy 2.0 async (#3)
 - [x] Postgres e Redis locais com docker compose (#4)
 - [x] Esqueleto FastAPI por domínio, health check e pytest (#5)
 - [ ] Modelos `User`, `Practice` e `PracticeLog` com a primeira migração (#6)
-- [ ] Autenticação JWT: registro, login e refresh (#7)
-- [ ] CRUD de práticas com recorrência (#8)
-- [ ] GitHub Actions com lint e pytest a cada PR (#9)
+- [x] Replanejamento da Fase 1 em seis ciclos (#15)
 
 A API ainda só responde ao health check, e não há aplicativo.
 

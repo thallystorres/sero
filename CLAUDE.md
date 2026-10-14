@@ -83,7 +83,7 @@ Fora de escopo de propósito: iOS, Play Store, multiusuário, frontend web, insp
 
 ## Fases
 
-O MVP (Fase 1) é só conta, devocional e streak — RF01–RF06, RF11, RF12 — **sem bloqueio nenhum**. Bloqueio DNS entra na Fase 2, accountability na 3, AccessibilityService/Device Owner na 4, notebook e DNS em Go na 5. Não antecipe trabalho de fase posterior. O prazo da fase é fixo e o escopo é flexível: se o ciclo escorrega, corta-se requisito.
+O MVP (Fase 1) é só conta, devocional e streak — RF01–RF06, RF11, RF12 — **sem bloqueio nenhum**. Bloqueio DNS entra na Fase 2, accountability na 3, AccessibilityService/Device Owner na 4, notebook e DNS em Go na 5. Não antecipe trabalho de fase posterior. A Fase 1 tem seis ciclos e termina em 25/12/2026; eram quatro, e ela foi replanejada com a velocidade real do Ciclo 1 (#15). O prazo da fase é fixo e o escopo é flexível: se o ciclo escorrega, corta-se requisito.
 
 ## Processo
 
